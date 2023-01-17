@@ -25,7 +25,7 @@ class CreateClientUseCase {
 
         const client = await prisma.clients.create({
             data: {
-                username,
+                username: username.toLowerCase(),
                 password: hashPassword,
             },
         });
