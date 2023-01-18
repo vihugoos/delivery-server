@@ -7,6 +7,7 @@ import { CreateDeliveryController } from "./modules/deliveries/use-cases/create-
 import { ensureAuthenticateClient } from "./middlewares/ensureAuthenticateClient";
 import { FindAllAvailableController } from "./modules/deliveries/use-cases/find-all-available/FindAllAvailableController";
 import { ensureAuthenticateDeliveryman } from "./middlewares/ensureAuthenticateDeliveryman";
+import { UpdateDeliverymanController } from "./modules/deliveries/use-cases/update-deliveryman/UpdateDeliverymanController";
 
 const routes = Router();
 
@@ -32,11 +33,18 @@ routes.post(
     new CreateDeliveryController().handle
 );
 
-// Find all deliveries without end date
+// Find all available deliveries
 routes.get(
-    "/deliveries/available",
+    "/delivery/available",
     ensureAuthenticateDeliveryman,
     new FindAllAvailableController().handle
+);
+
+// Update the deliveryman on delivery
+routes.put(
+    "/delivery/update-deliveryman/:id",
+    ensureAuthenticateDeliveryman,
+    new UpdateDeliverymanController().handle
 );
 
 export { routes };
