@@ -9,6 +9,7 @@ import { FindAllAvailableController } from "./modules/deliveries/use-cases/find-
 import { ensureAuthenticateDeliveryman } from "./middlewares/ensureAuthenticateDeliveryman";
 import { UpdateDeliverymanController } from "./modules/deliveries/use-cases/update-deliveryman/UpdateDeliverymanController";
 import { FindDeliveriesByClientController } from "./modules/clients/use-cases/find-deliveries-by-client/FindDeliveriesByClientController";
+import { FindDeliveriesByDeliverymanController } from "./modules/deliveryman/use-cases/find-deliveries-by-deliveryman/FindDeliveriesByDeliverymanController";
 
 const routes = Router();
 
@@ -53,6 +54,13 @@ routes.get(
     "/client/deliveries",
     ensureAuthenticateClient,
     new FindDeliveriesByClientController().handle
+);
+
+// Find deliveries by deliveryman
+routes.get(
+    "/deliveryman/deliveries",
+    ensureAuthenticateDeliveryman,
+    new FindDeliveriesByDeliverymanController().handle
 );
 
 export { routes };
