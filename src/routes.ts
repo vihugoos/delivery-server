@@ -8,6 +8,7 @@ import { ensureAuthenticateClient } from "./middlewares/ensureAuthenticateClient
 import { FindAllAvailableController } from "./modules/deliveries/use-cases/find-all-available/FindAllAvailableController";
 import { ensureAuthenticateDeliveryman } from "./middlewares/ensureAuthenticateDeliveryman";
 import { UpdateDeliverymanController } from "./modules/deliveries/use-cases/update-deliveryman/UpdateDeliverymanController";
+import { FindDeliveriesByClientController } from "./modules/clients/use-cases/find-deliveries-by-client/FindDeliveriesByClientController";
 
 const routes = Router();
 
@@ -45,6 +46,13 @@ routes.put(
     "/delivery/update-deliveryman/:id",
     ensureAuthenticateDeliveryman,
     new UpdateDeliverymanController().handle
+);
+
+// Find deliveries by client
+routes.get(
+    "/client/deliveries",
+    ensureAuthenticateClient,
+    new FindDeliveriesByClientController().handle
 );
 
 export { routes };
