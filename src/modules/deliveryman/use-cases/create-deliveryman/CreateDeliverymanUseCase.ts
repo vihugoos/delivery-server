@@ -1,5 +1,6 @@
 import { hash } from "bcrypt";
 import { prisma } from "../../../../database/prisma-client";
+import { AppError } from "../../../../errors/AppError";
 
 interface ICreateDeliveryman {
     username: string;
@@ -18,7 +19,7 @@ class CreateDeliverymanUseCase {
         });
 
         if (deliverymanExists) {
-            throw new Error("Deliveryman already exists.");
+            throw new AppError("Deliveryman already exists.");
         }
 
         const hashPassword = await hash(password, 10);
