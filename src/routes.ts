@@ -6,6 +6,7 @@ import { AuthenticateDeliverymanController } from "./modules/accounts/use-cases/
 import { CreateDeliveryController } from "./modules/deliveries/use-cases/create-delivery/CreateDeliveryController";
 import { ensureAuthenticateClient } from "./middlewares/ensureAuthenticateClient";
 import { FindAllAvailableController } from "./modules/deliveries/use-cases/find-all-available/FindAllAvailableController";
+import { ensureAuthenticateDeliveryman } from "./middlewares/ensureAuthenticateDeliveryman";
 
 const routes = Router();
 
@@ -32,6 +33,10 @@ routes.post(
 );
 
 // Find all deliveries without end date
-routes.get("/deliveries", new FindAllAvailableController().handle);
+routes.get(
+    "/deliveries/available",
+    ensureAuthenticateDeliveryman,
+    new FindAllAvailableController().handle
+);
 
 export { routes };
