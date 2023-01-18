@@ -8,8 +8,9 @@ class FindDeliveriesByDeliverymanController {
         const findDeliveriesByDeliverymanUseCase =
             new FindDeliveriesByDeliverymanUseCase();
 
-        const deliveries =
-            findDeliveriesByDeliverymanUseCase.execute(id_deliveryman);
+        const deliveries = await findDeliveriesByDeliverymanUseCase.execute(
+            id_deliveryman
+        );
 
         return response.json({ deliveries });
     }
