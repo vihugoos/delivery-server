@@ -10,6 +10,7 @@ import { ensureAuthenticateDeliveryman } from "./middlewares/ensureAuthenticateD
 import { UpdateDeliverymanController } from "./modules/deliveries/use-cases/update-deliveryman/UpdateDeliverymanController";
 import { FindDeliveriesByClientController } from "./modules/clients/use-cases/find-deliveries-by-client/FindDeliveriesByClientController";
 import { FindDeliveriesByDeliverymanController } from "./modules/deliveryman/use-cases/find-deliveries-by-deliveryman/FindDeliveriesByDeliverymanController";
+import { CloseDeliveryController } from "./modules/deliveries/use-cases/close-delivery/CloseDeliveryController";
 
 const routes = Router();
 
@@ -61,6 +62,13 @@ routes.get(
     "/deliveryman/deliveries",
     ensureAuthenticateDeliveryman,
     new FindDeliveriesByDeliverymanController().handle
+);
+
+// Close delivery
+routes.put(
+    "/delivery/close/:id",
+    ensureAuthenticateDeliveryman,
+    new CloseDeliveryController().handle
 );
 
 export { routes };
