@@ -1,5 +1,5 @@
-import { prisma } from "../../../../database/prisma-client";
-import { AppError } from "../../../../errors/AppError";
+import { prisma } from "@database/prisma-client";
+import { AppError } from "@errors/AppError";
 
 interface ICloseDelivery {
     id_delivery: string;

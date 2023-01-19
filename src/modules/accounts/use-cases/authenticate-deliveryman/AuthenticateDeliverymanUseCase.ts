@@ -1,8 +1,9 @@
-import { prisma } from "../../../../database/prisma-client";
 import { compare } from "bcrypt";
 import { sign } from "jsonwebtoken";
-import { AppError } from "../../../../errors/AppError";
-import { auth } from "../../../../config/auth";
+
+import { prisma } from "@database/prisma-client";
+import { AppError } from "@errors/AppError";
+import { auth } from "@config/auth";
 
 interface IAuthenticateDeliveryman {
     username: string;

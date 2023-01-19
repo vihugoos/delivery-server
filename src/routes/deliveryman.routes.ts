@@ -1,4 +1,5 @@
 import { Router } from "express";
+
 import { CreateDeliverymanController } from "../modules/deliveryman/use-cases/create-deliveryman/CreateDeliverymanController";
 import { AuthenticateDeliverymanController } from "../modules/accounts/use-cases/authenticate-deliveryman/AuthenticateDeliveryController";
 import { ensureAuthenticateDeliveryman } from "../middlewares/ensureAuthenticateDeliveryman";

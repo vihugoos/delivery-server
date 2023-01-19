@@ -1,8 +1,9 @@
 import express, { NextFunction, Request, Response } from "express";
 import "dotenv/config";
 import "express-async-errors";
+
+import { AppError } from "@errors/AppError";
 import { routers } from "./routes/index";
-import { AppError } from "./errors/AppError";
 
 const app = express();
 

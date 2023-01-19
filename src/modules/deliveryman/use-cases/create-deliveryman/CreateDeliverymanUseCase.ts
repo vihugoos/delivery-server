@@ -1,6 +1,7 @@
 import { hash } from "bcrypt";
-import { prisma } from "../../../../database/prisma-client";
-import { AppError } from "../../../../errors/AppError";
+
+import { prisma } from "@database/prisma-client";
+import { AppError } from "@errors/AppError";
 
 interface ICreateDeliveryman {
     username: string;

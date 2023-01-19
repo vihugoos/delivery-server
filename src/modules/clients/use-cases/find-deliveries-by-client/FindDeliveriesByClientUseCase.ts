@@ -1,4 +1,4 @@
-import { prisma } from "../../../../database/prisma-client";
+import { prisma } from "@database/prisma-client";
 
 class FindDeliveriesByClientUseCase {
     async execute(id_client: string) {
