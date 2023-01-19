@@ -2,6 +2,12 @@
     "compilerOptions": {
         "target": "ES2020",
         "module": "commonjs",
+        "baseUrl": "./src",
+        "paths": {
+            "@config/*": ["config/*"],
+            "@database/*": ["database/*"],
+            "@errors/*": ["errors/*"]
+        },
         "esModuleInterop": true,
         "forceConsistentCasingInFileNames": true,
         "strict": true,
